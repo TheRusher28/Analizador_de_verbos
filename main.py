@@ -1,5 +1,7 @@
 """
-Por ahora el programa solo es capaz de analizar formas infinitivas (POR AHORA)
+Por ahora el programa solo es capaz de analizar formas infinitivas pero ya me estoy poniendo
+a trabajar para que identifique formas conjugadas de los verbos y tambien que pueda identificar
+los gerundios y los participios :D Att:TheRusher28 
 """
 
 __author__ = "TheRusher28"
