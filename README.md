@@ -1,2 +1,3 @@
 # Analizador_de_verbos
-Este código analiza morfologicamente cualquier verbo que tu le des :) PD: soy un programador novato, voy a ir subiendo cositas que vaya haciendo mientras voy aprendiendo (Todavía no está empezado debido a que es un proyecto con mucho trabajo monótomo y seguramente tarde bastantes meses en estar listo)
+Este código analiza morfologicamente cualquier verbo en inglés que tu le des :) PD: soy un programador novato, voy a ir subiendo cositas que vaya haciendo mientras voy aprendiendo (Todavía no está empezado debido a que es un proyecto con mucho trabajo monótomo y seguramente tarde bastantes meses en estar listo)
+Noticia: Voy a cambiar el rumbo del programa, debido a que al principio estaba planeado que analizase verbos en español, pero la lista de verbos irregulares de verbos en español es muy larga y confusa (al menos para mi) y por eso he decidido que el programa solo analizará verbos en inglés
