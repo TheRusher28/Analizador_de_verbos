@@ -1,7 +1,9 @@
 """
-Por ahora el programa solo es capaz de analizar formas infinitivas pero ya me estoy poniendo
-a trabajar para que identifique formas conjugadas de los verbos y tambien que pueda identificar
-los gerundios y los participios :D Att:TheRusher28 
+Instrucciones de uso:
+Este programa esta en fase UltraPreAlfa, es decir, no esta acabado, estos son los ultimos avanzes que he
+hecho este tiempo, de momento el programa SOLO sabe distinguir verbos conjugados en PRESENTE SIMPLE
+y PRESENTE CONTINUO. Por ahora no puede distinguir mas tiempos verbales que esos 2, en el futuro soportará
+todos. Att: TheRusher28
 """
 
 __author__ = "TheRusher28"
@@ -14,101 +16,73 @@ __status__ = "Beginner"
 
 class Verbo:
     def __init__(self):
-        self.verbo = input('Introduzca su verbo en infinitivo, porfavor: ')
-        self.lexema = None
-        self.conjugacion = None
-        self.desinencia = None
+        self.verbo = input('Introduzca el verbo: ')
+        self.persona = 1
+        self.numero = ''
+        self.sujeto = ['I', 'You', 'He ', 'She', 'It ', 'We', 'You ', 'They']
+        self.to_be = ['am ', 'are', 'is ', 'are', 'are', 'are']
+        self.to_be_past = ['was ', 'were', 'was ', 'were', 'were', 'were']
+        self.tiempo = ''
+        self.suj = ''
+        self.vb_sin_suj = ''
+        self.vb_sin_tb = ''
 
-    def coger_lexema(self, verbo, lexema):
-        if len(self.verbo) == 2:
-            print('Tiene 2 letras/l')
-            self.lexema = self.verbo[0:2]
-        elif len(self.verbo) == 3:
-            print('Tiene 3 letras/l')
-            self.lexema = self.verbo[0:1]
-        elif len(self.verbo) == 4:
-            print('Tiene 4 letras/l')
-            self.lexema = self.verbo[0:2]
-        elif len(self.verbo) == 5:
-            print('Tiene 5 letras/l')
-            self.lexema = self.verbo[0:3]
-        elif len(self.verbo) == 6:
-            print('Tiene 6 letras/l')
-            self.lexema = self.verbo[0:4]
-        elif len(self.verbo) == 7:
-            print('Tiene 7 letras/l')
-            self.lexema = self.verbo[0:5]
-        elif len(self.verbo) == 8:
-            print('Tiene 8 letras/l')
-            self.lexema = self.verbo[0:6]
-        elif len(self.verbo) == 9:
-            print('Tiene 9 letras/l')
-            self.lexema = self.verbo[0:7]
-        elif len(self.verbo) == 10:
-            print('Tiene 10 letras/l')
-            self.lexema = self.verbo[0:8]
-        elif len(self.verbo) == 11:
-            print('Tiene 11 letras/l')
-            self.lexema = self.verbo[0:9]
-        elif len(self.verbo) == 12:
-            print('Tiene 12 letras/l')
-            self.lexema = self.verbo[0:10]
+    def identificar_sujeto(self, verbo, sujeto, persona):
+        if self.verbo[0] == self.sujeto[0]:
+            self.persona = 1
+            self.numero = 'sing'
+        elif self.verbo[0:3] == self.sujeto[1]:
+            self.persona = 2
+            self.numero = 'sing'
+        elif self.verbo[0:2] == self.sujeto[2] or self.verbo[0:3] == self.sujeto[3] or self.verbo[0:2] == self.sujeto[4]:
+            self.persona = 3
+            self.numero = 'sing'
+        elif self.verbo[0:2] == self.sujeto[5]:
+            self.persona = 1
+            self.numero = 'pl'
+        elif self.verbo[0:4] == self.sujeto[6]:
+            self.persona = 2
+            self.numero = 'sing'
+        elif self.verbo[0] == self.sujeto[7]:
+            self.persona = 3
+            self.numero = 'sing'
+
+    def coger_sujeto(self, verbo, persona, numero, vb_sin_sujeto):
+        if self.persona == 1 and self.numero == 'sing':
+            self.suj = self.verbo[0:1]
+            self.vb_sin_suj = self.verbo[1:15]
+        elif self.persona == 2 and self.numero == 'sing':
+            self.suj = self.verbo[0:3]
+            self.vb_sin_suj = self.verbo[3:18]
+        elif self.persona == 3 and self.numero == 'sing':
+            self.suj = self.verbo[0:3]
+            self.vb_sin_suj = self.verbo[3:18]
+        elif self.persona == 1 and self.numero == 'pl':
+            self.suj = self.verbo[0:2]
+            self.vb_sin_suj = self.verbo[2:17]
+        elif self.persona == 2 and self.numero == 'pl':
+            self.suj = self.verbo[0:4]
+            self.vb_sin_suj = self.verbo[4:19]
+        elif self.persona == 3 and self.numero == 'pl':
+            self.suj = self.verbo[0:4]
+            self.vb_sin_suj = self.verbo[4:19]
         else:
-            print('Tiene demasiadas letras/l')
-        return self.lexema
+            print('No tiene sujeto')
+        return self.vb_sin_suj
 
-    def coger_desinencia(self, verbo, desinencia):
-        if len(self.verbo) == 2:
-            print('Tiene 2 letras/d')
-            self.desinencia = self.verbo[0:2]
-        elif len(self.verbo) == 3:
-            print('Tiene 3 letras/d')
-            self.desinencia = self.verbo[2:3]
-        elif len(self.verbo) == 4:
-            print('Tiene 4 letras/d')
-            self.desinencia = self.verbo[2:4]
-        elif len(self.verbo) == 5:
-            print('Tiene 5 letras/d')
-            self.desinencia = self.verbo[3:5]
-        elif len(self.verbo) == 6:
-            print('Tiene 6 letras/d')
-            self.desinencia = self.verbo[4:6]
-        elif len(self.verbo) == 7:
-            print('Tiene 7 letras/d')
-            self.desinencia = self.verbo[5:7]
-        elif len(self.verbo) == 8:
-            print('Tiene 8 letras/d')
-            self.desinencia = self.verbo[6:8]
-        elif len(self.verbo) == 9:
-            print('Tiene 9 letras/d')
-            self.desinencia = self.verbo[7:9]
-        elif len(self.verbo) == 10:
-            print('Tiene 10 letras/d')
-            self.desinencia = self.verbo[8:10]
-        elif len(self.verbo) == 11:
-            print('Tiene 11 letras/d')
-            self.desinencia = self.verbo[9:11]
-        elif len(self.verbo) == 12:
-            print('Tiene 12 letras/d')
-            self.desinencia = self.verbo[10:12]
+
+    def identificar_presente(self, verbo, tiempo, suj, vb_sin_suj, vb_sin_tb):
+        if self.vb_sin_suj[0:4] == ' am ' or self.vb_sin_suj[0:3] == ' are' or self.vb_sin_suj[0:3] == ' is ':
+            self.tiempo = 'Presente Continuo'
         else:
-            print('Tiene demasiadas letras/d')
-        return self.desinencia
-
-    def identificar_conjugacion(self, verbo, conjugacion):
-        if self.desinencia == 'ar':
-            print('Es de primera conjugacion')
-            self.conjugacion = 1
-        elif self.desinencia == 'er':
-            print('Es de segunda conjugacion')
-            self.conjugacion = 2
-        elif self.desinencia == 'ir':
-            print('Es de tercera conjugacion')
-            self.conjugacion = 3
-        return self.conjugacion
-
+            self.tiempo = 'Presente Simple'
+        pass
 
 verbo = Verbo()
-print(verbo.coger_lexema(verbo.verbo, verbo.lexema))
-print(verbo.coger_desinencia(verbo.verbo, verbo.desinencia))
-print(verbo.identificar_conjugacion(verbo.verbo, verbo.conjugacion))
+
+verbo.identificar_sujeto(verbo.verbo, verbo.sujeto, verbo.persona)
+verbo.coger_sujeto(verbo.verbo, verbo.persona, verbo.numero, verbo.vb_sin_suj)
+print(verbo.identificar_presente(verbo.verbo, verbo.tiempo, verbo.suj, verbo.vb_sin_suj, verbo.vb_sin_tb))
+print(verbo.verbo)
+print(verbo.vb_sin_suj)
+print(__copyright__)
