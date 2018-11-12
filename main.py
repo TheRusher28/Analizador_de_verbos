@@ -19,7 +19,7 @@ class Verbo:
         self.verbo = input('Introduzca el verbo: ')
         self.persona = 1
         self.numero = ''
-        self.sujeto = ['I', 'You', 'He ', 'She', 'It ', 'We', 'You ', 'They']
+        self.sujeto = ['I', 'You', 'He', 'She', 'it', 'We', 'You ', 'They']
         self.to_be = ['am ', 'are', 'is ', 'are', 'are', 'are']
         self.to_be_past = ['was ', 'were', 'was ', 'were', 'were', 'were']
         self.tiempo = ''
@@ -42,10 +42,10 @@ class Verbo:
             self.numero = 'pl'
         elif self.verbo[0:4] == self.sujeto[6]:
             self.persona = 2
-            self.numero = 'sing'
-        elif self.verbo[0] == self.sujeto[7]:
+            self.numero = 'pl'
+        elif self.verbo[0:4] == self.sujeto[7]:
             self.persona = 3
-            self.numero = 'sing'
+            self.numero = 'pl'
 
     def coger_sujeto(self, verbo, persona, numero, vb_sin_sujeto):
         if self.persona == 1 and self.numero == 'sing':
@@ -76,7 +76,7 @@ class Verbo:
             self.tiempo = 'Presente Continuo'
         else:
             self.tiempo = 'Presente Simple'
-        pass
+        return self.tiempo
 
 verbo = Verbo()
 
