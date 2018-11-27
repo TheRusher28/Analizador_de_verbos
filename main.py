@@ -133,13 +133,8 @@ class Verbo:
             print('Tiene 21 letras')
             self.desinencia = self.verbo[18:21]
         else:
-<<<<<<< HEAD
             print('Tiene demasiadas letras/d')
         return self.desinencia
-=======
-            self.tiempo = 'Presente Simple'
-        return self.tiempo
->>>>>>> origin/master
 
     def identificar_presente(self, verbo, tiempo, suj, vb_sin_suj, vb_sin_tb):      #Esta funcion coge todos los datos anteriores como self.vb_sin_suj y self.desinencia para decir si el verbo en cuestion es o no de alguno de los tiempos verbales de presente.
         if self.vb_sin_suj[0:4] == ' am ' or self.vb_sin_suj[0:4] == ' are' or self.vb_sin_suj[0:3] == 'is ' or self.vb_sin_suj[0:4] == ' is ':
