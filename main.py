@@ -1,9 +1,10 @@
 
 """
-Version: Beta v0.4
-El proyecto no está acabado, le faltan cosas por pulir todavia, he podido hacer que funcione con Presente Simple,
-Presente Continuo, Pasado Simple (Junto con verbos irregulares), Pasado Continuo, Condicional Simple
-y Condicional Continuo.jafsnfjasfiasofoiasjf
+Version: v1.0
+El proyecto está acabado, le faltan más tiempos verbales, pero este proyecto solo lo quería para
+practicar y añadir más tiempos verbales habría sido una tarea repetitiva e inútil solo sabe diferenciar
+entre Presente Simple, Presente Continuo, Pasado Simple (Junto con verbos irregulares), Pasado Continuo,
+Condicional Simple y Condicional Continuo.
 """
 __author__ = "TheRusher28"
 __copyright__ = "Copyright 2018, TheRusher28"
@@ -12,7 +13,8 @@ __credits__ = "TheRusher28"
 __mantainer__ = "TheRusher28"
 __email__ = "therusher28@gmail.com"
 __status__ = "Beginner"
-__version__ = 'Beta v0.4'
+__version__ = 'v1.0'
+
 
 class Verbo:
     def __init__(self):     #Esta es la clase donde se almacenará y analizara lo que tu escribas
@@ -752,7 +754,7 @@ class Verbo:
             self.tiempo = 'Past simple(irr)'
         return self.tiempo
 
-#Ejecutacion de todas las funciones.
+#Ejecucion de todas las funciones.
 verbo = Verbo()
 verbo.coger_desinencia(verbo.verbo, verbo.desinencia)
 verbo.identificar_sujeto(verbo.verbo, verbo.sujeto, verbo.persona)
