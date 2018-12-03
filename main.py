@@ -3,7 +3,7 @@
 Version: Beta v0.4
 El proyecto no está acabado, le faltan cosas por pulir todavia, he podido hacer que funcione con Presente Simple,
 Presente Continuo, Pasado Simple (Junto con verbos irregulares), Pasado Continuo, Condicional Simple
-y Condicional Continuo.
+y Condicional Continuo.jafsnfjasfiasofoiasjf
 """
 __author__ = "TheRusher28"
 __copyright__ = "Copyright 2018, TheRusher28"
