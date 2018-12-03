@@ -11,7 +11,7 @@ __copyright__ = "Copyright 2018, TheRusher28"
 __credits__ = "TheRusher28"
 
 __mantainer__ = "TheRusher28"
-__email__ = "therusher28@gmail.com"
+__email__ = "therushermc28@gmail.com"
 __status__ = "Beginner"
 __version__ = 'v1.0'
 
